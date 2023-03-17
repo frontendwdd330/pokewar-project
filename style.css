@@ -1,7 +1,15 @@
 body {
-  background-color: #F0EFE9;
-  color: #5E6171;
-  font-family: 'Varela Round', sans-serif;
+  background-color: #FFFFFF;
+  color: black;
+  font-family: 'Exo', sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  display: inline;
+  display: flex;
+  overflow: auto;
+  text-align: center;
 }
 
 h1 {
