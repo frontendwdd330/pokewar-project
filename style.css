@@ -6,10 +6,31 @@ body {
 
 nav ul {
   list-style: none;
-  display: inline;
   display: flex;
-  overflow: auto;
   text-align: center;
+  justify-content: space-evenly;
+  padding: 35px;
+  background-color: rgb(132, 132, 187);
+  font-weight: 900;
+  font-size: 1.2em;
+  margin-bottom: 0px;
+}
+
+li {
+  border-radius: 10px;
+  padding: 15px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #3bb982;
+
+}
+
+main {
+  background-color: rgb(194, 194, 216);
+  ;
 }
 
 h1 {
@@ -31,6 +52,12 @@ section {
   margin: 0 auto;
   padding: 40px;
   box-shadow: 3px 3px 7px #bdbbae33;
+}
+
+footer {
+  background-color: rgb(132, 132, 187);
+  font-weight: 900;
+  padding: 1%;
 }
 
 .types {
