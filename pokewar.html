@@ -16,22 +16,31 @@
     <header>
         <nav>
             <ul>
-                <img class="icon" src="/public/images/pokeaicon.png" alt="">
                 <a href="/index.html">
                     <li>Home</li>
                 </a>
+                <img class="icon" src="/images/pokewar.png" alt="logo">
                 <a href="/pokewar.html">
-                    <li>Pokewar</li>
+                    <li>Pokéwar</li>
                 </a>
             </ul>
         </nav>
     </header>
     <main>
         <section id="app">
-            <h1>PokeWar</h1>
-            <ul id="typeList" class="types"></ul>
-            <ul id="pokeList" class="pokemon"></ul>
+            <h1>Choose your Pokémon!</h1>
+            <div class="search-container">
+                <div class="typeList-vertical">
+                    <ul id="typeList" class="types"></ul>
+                </div>
+                <div class="pokeList-vertical">
+                    <ul id="pokeList" class="pokemon"></ul>
+                </div>
+                <div class="modal" id="modal"></div>
+                
+            </div>
         </section>
+        
         <script type="module" src="/main.js"></script>
     </main>
     <footer>
