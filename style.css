@@ -82,6 +82,7 @@ li:hover {
 .modal.active{
   transform: translate(-50%, -50%) scale(1);
 }
+
 .leftDiv{
   display: grid;
   border-left: 15px solid #86061A;
@@ -98,6 +99,7 @@ li:hover {
   width: 500px;
   max-width: 50%;
 }
+
 .lCircle{
   height: 50px;
   width: 50px;
@@ -116,14 +118,28 @@ li:hover {
   border-radius: 20px;
   text-align: center;
   border: 20px solid #E6E6E6;
+  margin-top: 18px;
 }
-.img{
-  max-height: 60%;
-  max-width: 80%;
+.mlImg>img{
+  /* max-height: 60%;
+  max-width: 80%; */
+  width: 250px;
+  height: 300px;
 }
+.mlBottom{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 120px;
+}
+.plusControl>img{
+  max-height: 120px;
+  margin: left 40px;
+  margin-top: 10px;
+}
+
 .BottomCircle{
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   background-color: #404040;
   border-radius: 50%;
   border: 3px solid #303030;
@@ -138,7 +154,7 @@ li:hover {
   left: 0;
   right: 0;
   bottom:0;
-  background-color:rgba(0, 0, 0, .5);
+  background-color:rgba(0, 0, 0, .7);
   transition: 200ms ease-in-out;
   pointer-events: none;
 }
@@ -163,16 +179,23 @@ li:hover {
   /* font-weight:400; */
   font-family: 'Press Start 2P', cursive;
 }
+.mrBody{
+  height: 345px;
+  max-height:300px;
+}
 .mrBodyDetails{
   background-color: #9FDAB1;
   font-family: 'Press Start 2P', cursive;
   border: 5px solid #E6E6E6;
   margin-left: 20px;
   margin-right: 20px;
-  max-height:300px;
-  overflow-y: auto;
+  max-height:250px;
+  overflow-y:scroll;
   padding: 30px;
   font-size:smaller;
+}
+.mrBodyDetails h1,.mrBodyDetails h2{
+  border: 0px;
 }
 .addTeam{
   display: block;
