@@ -81,6 +81,7 @@ li:hover {
 }
 .modal.active{
   transform: translate(-50%, -50%) scale(1);
+  background-color:#b60724;
 }
 
 .leftDiv{
@@ -121,20 +122,19 @@ li:hover {
   margin-top: 18px;
 }
 .mlImg>img{
-  /* max-height: 60%;
-  max-width: 80%; */
   width: 250px;
-  height: 300px;
+  height: 250px;
 }
 .mlBottom{
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 120px;
+  margin-top: 20px
 }
 .plusControl>img{
   max-height: 120px;
-  margin: left 40px;
-  margin-top: 10px;
+  margin-left: 40px;
+  /* margin-top: 2px; */
 }
 
 .BottomCircle{
@@ -188,12 +188,12 @@ li:hover {
   background-color: #9FDAB1;
   font-family: 'Press Start 2P', cursive;
   border: 5px solid #E6E6E6;
-  margin-left: 20px;
-  margin-right: 20px;
-  max-height:250px;
-  overflow-y:scroll;
+  max-height: 290px;
+  overflow-y: scroll;
   padding: 30px;
-  font-size:smaller;
+  font-size: smaller;
+  max-width: 80%;
+  margin: 0 auto;
 }
 .mrBodyDetails h1,.mrBodyDetails h2{
   border: 0px;

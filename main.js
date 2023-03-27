@@ -38,8 +38,8 @@ async function getData(url, callback) {
 
 // keep things from happening until the DOM is ready
 // another alternative would be to add 'defer' to our script element
-const pokewar = document.getElementById("pokewar");
-pokewar.addEventListener('click', function () {
+// const pokewar = document.getElementById("pokewar");
+window.addEventListener('load', function () {
   getData("https://pokeapi.co/api/v2/type", renderTypeList);
   document.getElementById('typeList').addEventListener("click", typeClickHandler);
 });
