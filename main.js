@@ -13,37 +13,6 @@ When the page loads
 
 // we have to convert the response fetch sends back into the appropriate type. In this case the API sends back json...so we process it as json and send it back
 
-
-// Home Slideshow:
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-};
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-};
-
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1
-  }
-  slides[slideIndex - 1].style.display = "block";
-
-  setTimeout(showSlides, 2500); // Change image every 2.5 seconds
-};
-
-
-
-
 function convertToJson(response) {
   if (response.ok) {
     return response.json();
@@ -60,7 +29,7 @@ async function getData(url, callback) {
   // console.log(json);
   if (callback) {
     callback(json);
-  }else{
+  } else {
     return json
   }
 }
@@ -69,7 +38,7 @@ async function getData(url, callback) {
 
 // keep things from happening until the DOM is ready
 // another alternative would be to add 'defer' to our script element
-const pokewar = document.getElementById("pokewar")
+const pokewar = document.getElementById("pokewar");
 pokewar.addEventListener('click', function () {
   getData("https://pokeapi.co/api/v2/type", renderTypeList);
   document.getElementById('typeList').addEventListener("click", typeClickHandler);
@@ -103,72 +72,73 @@ async function pokemonClickHandler(event) {
 }
 // parameter example
 // (div, class, childDiv, parentDiv )
-function appendNewElement(htmlTag, 
-  attribute, 
-  attributeName, 
-  appendTo, 
-  content = null, 
-  attribute2 =null, 
-  attributeName2=null){
+function appendNewElement(htmlTag,
+  attribute,
+  attributeName,
+  appendTo,
+  content = null,
+  attribute2 = null,
+  attributeName2 = null) {
 
   let parent = document.querySelector(appendTo);
   let element = document.createElement(htmlTag);
   element.setAttribute(attribute, attributeName);
-  if(content){
+  if (content) {
     element.innerHTML = content;
   }
-  if(attribute2){
+  if (attribute2) {
     element.setAttribute(attribute2, attributeName2);
   }
   parent.appendChild(element);
 }
-  // turn on the modal and overlay
-  function modalOn(){
-    const modalDiv = document.querySelector(".modal");
-    const overlay = document.querySelector("#overlay");
-    modalDiv.classList.add("active");
-    overlay.classList.add("active");
-  }
-  // turn off the modal and overlay
-  function modalOffListener(){
-    const circle = document.querySelector(".mrTopCircle");
-    circle.addEventListener("click", modalOff);
-    const overlay = document.querySelector("#overlay");
-    overlay.addEventListener("click", modalOff);
-  }
-  function modalOff(){
-    const modalDiv = document.querySelector(".modal");
-    const overlay = document.querySelector("#overlay");
-    modalDiv.classList.remove("active");
-    overlay.classList.remove("active");
-    document.querySelector(".leftDiv").remove();
-    document.querySelector(".rightDiv").remove();
-  }
+// turn on the modal and overlay
+function modalOn() {
+  const modalDiv = document.querySelector(".modal");
+  const overlay = document.querySelector("#overlay");
+  modalDiv.classList.add("active");
+  overlay.classList.add("active");
+}
+// turn off the modal and overlay
+function modalOffListener() {
+  const circle = document.querySelector(".mrTopCircle");
+  circle.addEventListener("click", modalOff);
+  const overlay = document.querySelector("#overlay");
+  overlay.addEventListener("click", modalOff);
+}
 
-  function findEn(entry){
-    return entry.language.name === "en";
-  }
+function modalOff() {
+  const modalDiv = document.querySelector(".modal");
+  const overlay = document.querySelector("#overlay");
+  modalDiv.classList.remove("active");
+  overlay.classList.remove("active");
+  document.querySelector(".leftDiv").remove();
+  document.querySelector(".rightDiv").remove();
+}
 
-  function findImage(data){
-    var image;
-    if(data.sprites.other.dream_world.front_default != null){
-        image = data.sprites.other.dream_world.front_default;
-    } else if(data.sprites.other.home.front_default != null){
-      image = data.sprites.other.home.front_default
-    } else if(data.sprites.front_default !=null){
-      image = data.sprites.front_default;
-    }
-    return image;
-  }
+function findEn(entry) {
+  return entry.language.name === "en";
+}
 
-async function renderPokeModal(data){
+function findImage(data) {
+  var image;
+  if (data.sprites.other.dream_world.front_default != null) {
+    image = data.sprites.other.dream_world.front_default;
+  } else if (data.sprites.other.home.front_default != null) {
+    image = data.sprites.other.home.front_default
+  } else if (data.sprites.front_default != null) {
+    image = data.sprites.front_default;
+  }
+  return image;
+}
+
+async function renderPokeModal(data) {
   console.log("this the data from renderPokeModal")
   console.log(data)
   // all the model staff goes here
-  appendNewElement("div","id", "overlay","body");
+  appendNewElement("div", "id", "overlay", "body");
 
   // leftDiv the img div
-  appendNewElement("div","class", "leftDiv",".modal");
+  appendNewElement("div", "class", "leftDiv", ".modal");
 
   // mlTop modal left top
   appendNewElement("div", "class", "mlTop", ".leftDiv");
@@ -177,14 +147,14 @@ async function renderPokeModal(data){
   appendNewElement("div", "class", "lCircle", ".mlTop");
 
   //mlBody
-  appendNewElement("div", "class", "mlBody", ".leftDiv"); 
+  appendNewElement("div", "class", "mlBody", ".leftDiv");
 
   // mlImg
   appendNewElement("div", "class", "mlImg", ".mlBody");
   //img
   const pokeImg = findImage(data);
   console.log(pokeImg)
-  appendNewElement("img", "alt", "Selected Pokémon", ".mlImg",null, "src", pokeImg);
+  appendNewElement("img", "alt", "Selected Pokémon", ".mlImg", null, "src", pokeImg);
 
   //mlBottom
   appendNewElement("div", "class", "mlBottom", ".leftDiv");
@@ -196,7 +166,7 @@ async function renderPokeModal(data){
   appendNewElement("div", "class", "plusControl", ".mlBottom");
 
   //plusImg
-  appendNewElement("img", "alt", "plusImg", ".plusControl",null, "src", "/images/plus.png");
+  appendNewElement("img", "alt", "plusImg", ".plusControl", null, "src", "/images/plus.png");
 
   // rightDiv the info div
   appendNewElement("div", "class", "rightDiv", ".modal");
@@ -222,26 +192,26 @@ async function renderPokeModal(data){
 
   //pokeName
   appendNewElement("h1", "class", "h1Class", ".mrBodyDetails", data.name);
-  
+
   // abilities/ul
   appendNewElement("ul", "class", "abilitiesUl", ".mrBodyDetails");
-  
+
   // abilities/h2
   appendNewElement("h2", "class", "h2Class", ".abilitiesUl", "Abilities");
   // abilities/li
   data.abilities.forEach(element => {
-    appendNewElement("li", "class", "liClass", ".abilitiesUl", element.ability.name )
+    appendNewElement("li", "class", "liClass", ".abilitiesUl", element.ability.name)
   });
   //description
   const info = await getData(data.species.url);
   const textEntry = info.flavor_text_entries.find(entry => findEn(entry))
   appendNewElement("p", "class", "pClass", ".mrBodyDetails", textEntry.flavor_text);
-  
+
   // mrBottom
   appendNewElement("div", "class", "mrBottom", ".rightDiv");
 
   // add to my team!/a
-  appendNewElement("a", "class", "addTeam", ".mrBottom",null,"href", "algunOtroView");
+  appendNewElement("a", "class", "addTeam", ".mrBottom", null, "href", "algunOtroView");
 
   // add to my team!/p
   appendNewElement("p", "class", "pClass", ".addTeam", "Add to my Team!");
@@ -285,5 +255,3 @@ function setActive(type) {
 function cleanTypeList(list) {
   return list.filter((item) => item.name != 'shadow' && item.name != 'unknown');
 }
-
-
