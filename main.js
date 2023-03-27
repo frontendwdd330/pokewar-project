@@ -41,16 +41,13 @@ async function getData(url, callback) {
 
 window.addEventListener('load', function () {
   getData("https://pokeapi.co/api/v2/type", renderTypeList);
-
   document.getElementById('typeList').addEventListener("click", typeClickHandler);
 });
 
 // create simple html markup to display a list
 function renderTypeList(list) {
   const element = document.getElementById("typeList");
-
   const cleanList = cleanTypeList(list.results);
-
   cleanList.forEach((item) => {
     const li = document.createElement("li");
     li.innerHTML = `${item.name}`;
@@ -60,9 +57,6 @@ function renderTypeList(list) {
 }
 // create click handler for pokémon type
 function typeClickHandler(event) {
-  console.log(event.target);
-  console.log(event.currentTarget);
-
   const selectType = event.target;
   const url = selectType.dataset.url;
   getData(url, renderPokeList);
@@ -71,15 +65,8 @@ function typeClickHandler(event) {
 
 // create click handler for pokémon card
 async function pokemonClickHandler(event) {
-  console.log(event.target);
-  console.log(event.currentTarget);
-
   const selectPokemon = event.target;
   const url = selectPokemon.dataset.url;
-  const data = await fetch(url);
-  const json = await convertToJson(data);
-  console.log(json)
-
   getData(url, renderPokeModal);
   setActive(url);
 }
