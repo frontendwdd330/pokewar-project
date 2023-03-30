@@ -178,7 +178,7 @@ async function renderPokeModal(data) {
   appendNewElement("div", "class", "mrTopCircle", ".mrTop");
 
   // x button
-  appendNewElement("p", "class", "pClass", ".mrTopCircle", "X");
+  appendNewElement("p", "class", "xClass", ".mrTopCircle", "X");
   // turn on the modal
   modalOn();
   // turn off the modal
